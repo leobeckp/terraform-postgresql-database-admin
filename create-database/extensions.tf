@@ -7,6 +7,7 @@ resource "postgresql_extension" "psql_extension" {
 
   for_each = toset(var.inputs["extensions"])
   name     = each.key
+  database = var.inputs["db_name"]
 
   depends_on = [
     postgresql_role.app_roles,
