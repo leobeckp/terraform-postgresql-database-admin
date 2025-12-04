@@ -9,11 +9,13 @@ variable "pgadmin_user" {
 variable "dbhost" {
   type        = string
   description = "The Postgresql Database Hostname"
+  ephemeral   = true
 }
 
 variable "dbport" {
   type        = string
   description = "The Postgresql Database Port"
+  ephemeral   = true
 }
 
 ########################################
@@ -36,7 +38,7 @@ variable "inputs" {
     db_schema_name = string
     db_name        = string
     db_admin       = string
-    extensions = list(string)
+    extensions     = list(string)
     db_roles = list(object({
       id         = string
       role       = string
@@ -47,8 +49,8 @@ variable "inputs" {
       createrole = bool
     }))
     db_grants = list(object({
-      object_type = string
-      privileges  = list(string)
+      object_type  = string
+      privileges   = list(string)
       role         = string
       owner_role   = string
       objects      = list(string)

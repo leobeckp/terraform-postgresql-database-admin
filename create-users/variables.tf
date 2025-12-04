@@ -9,11 +9,13 @@ variable "pgadmin_user" {
 variable "dbhost" {
   type        = string
   description = "The RDS DB Hostname"
+  ephemeral   = true
 }
 
 variable "dbport" {
   type        = string
   description = "The RDS DB Port"
+  ephemeral   = true
 }
 
 ########################################
